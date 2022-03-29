@@ -1,0 +1,28 @@
+package com.company;
+
+import javax.swing.*;
+import java.awt.*;
+
+public class Ris2 extends JFrame {
+    private int x;
+    private int y;
+    private int a;
+    private int b;
+
+    public Ris2(int x, int y, int a, int b) {
+        setSize(150, 150);
+
+        setLocationRelativeTo(null);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setVisible(true);
+
+        this.x = x + getInsets().left / 2;
+        this.y = y + getInsets().top / 2;
+        this.a = a;
+        this.b = b;
+    }
+
+    public void paint(Graphics g) {
+        g.drawRect(x, y, a, b);
+    }
+}
