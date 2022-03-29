@@ -1,0 +1,57 @@
+package com.company;
+
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+
+public class Ris {
+
+    public static void main(String[] args) {
+
+        String in;
+        in = JOptionPane.showInputDialog(null, "Введите координату X прямоугольника");
+        if (in != null && !in.equals("")) {
+            double n = Double.parseDouble(in);
+        }
+        else {
+            JOptionPane.showMessageDialog(null, "Вы ничего не ввели");
+        }
+        String in2;
+        in2 = JOptionPane.showInputDialog(null, "Введите координату Y прямоугольника");
+        if (in2 != null && !in2.equals("")) {
+            double n = Double.parseDouble(in2);
+        }
+        else {
+            JOptionPane.showMessageDialog(null, "Вы ничего не ввели");
+        }
+        String in3;
+        in3 = JOptionPane.showInputDialog(null, "Введите ширину прямоугольника");
+        if (in3 != null && !in3.equals("")) {
+            double n = Double.parseDouble(in3);
+        }
+        else {
+            JOptionPane.showMessageDialog(null, "Вы ничего не ввели");
+        }
+        String in4;
+        in4 = JOptionPane.showInputDialog(null, "Введите высоту прямоугольника");
+        if (in4 != null && !in4.equals("")) {
+            double n = Double.parseDouble(in4);
+
+            if (n == 0) JOptionPane.showMessageDialog(null, "Вы ввели ноль");
+            if (n < 0) JOptionPane.showMessageDialog(null, "Вы ввели отрицательное число");
+            else {
+                JFrame frame = new JFrame("Графика");
+                frame.setBounds(300, 300, 650, 500);
+                frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                frame.setVisible(true);
+
+
+
+
+
+
+            }
+        }
+        else
+            JOptionPane.showMessageDialog(null, "Вы ничего не ввели");
+    }
+}
