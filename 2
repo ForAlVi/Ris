@@ -1,0 +1,66 @@
+package com.company;
+
+import javax.swing.*;
+import java.awt.*;
+
+public class Cat extends JFrame {
+
+
+    public static void main(String[] args) {
+        new Cat();
+    }
+
+    public Cat () {
+        super("Рисование человека");
+        setBounds(500, 100, 900, 900);
+        setVisible(true);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    }
+
+    public void paint (Graphics g) {
+        super.paint(g);
+        Graphics2D g2 = (Graphics2D) g;
+
+        g2.drawOval(375, 150, 150, 150);
+        g2.drawOval(345, 150, 45, 45);
+        g2.drawOval(510, 150, 45, 45);
+        g2.drawOval(445, 230, 10, 10);
+        g2.drawOval(390, 200, 30, 30);
+        g2.drawOval(480, 200, 30, 30);
+        g2.drawLine(385, 190, 300, 350);
+        g2.drawLine(515, 190, 600, 350);
+        g2.drawLine(300, 350, 425, 350);
+        g2.drawLine(600, 350, 474, 350);
+        g2.setStroke(new BasicStroke(5));
+        g2.drawArc(400, 180, 100, 100, -62, -60);
+        g2.setStroke(new BasicStroke(1));
+        g2.drawArc(375, 185, 70, 70, 65, 65);
+        g2.drawArc(458, 185, 70, 70, 50, 60);
+        g2.drawArc(455, 200, 73, 70, -45, 70);
+        g2.drawArc(372, 200, 73, 70, 154, 70);
+        g2.drawLine(450, 300, 350, 515);
+        g2.drawLine(450, 300, 550, 515);
+        g2.drawLine(550, 515, 350, 515);
+        g2.setStroke(new BasicStroke(5));
+        g2.drawLine(483, 370, 570, 450);
+        g2.drawLine(415, 370, 330, 450);
+        g2.drawLine(390, 620, 415, 517);
+        g2.drawLine(510, 620, 486, 517);
+        g2.setStroke(new BasicStroke(1));
+        Color newColor = new Color(255, 0, 0);
+        g2.fillOval(397, 210, 15, 15);
+        g2.fillOval(487, 210, 15, 15);
+        for (int i = 0; i < 19000; i++) {
+            g2.setClip(390, 235, 45, 35);
+            int x = (int) Math.ceil(Math.random() * getSize().width) ;
+            int y = (int) Math.ceil(Math.random() * getSize().width-50)+50;
+            g2.fillOval(x, y, 3, 3);
+        }
+        for (int i = 0; i < 19000; i++) {
+            g2.setClip(465, 235, 45, 35);
+            int x = (int) Math.ceil(Math.random() * getSize().width) ;
+            int y = (int) Math.ceil(Math.random() * getSize().width-50)+50;
+            g2.fillOval(x, y, 3, 3);
+        }
+    }
+}
