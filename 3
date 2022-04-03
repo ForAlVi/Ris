@@ -1,0 +1,84 @@
+package com.company;
+
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+public class human extends JFrame {
+
+    private Timer timer;
+    private int x = 0;
+    private int y = 50;
+
+    public static void main(String[] args) {
+        new human();
+    }
+
+    public human() throws HeadlessException {
+        super("Window");
+        setBounds(300, 300, 500, 500);
+        setDefaultCloseOperation(EXIT_ON_CLOSE);
+        setResizable(false);
+        setLayout(new FlowLayout());
+        setVisible(true);
+        timer = new Timer(300, new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (x < 0 || x > 400)
+                    y = -y;
+                x = x + y;
+                System.out.println(y);
+                System.out.println(x);
+                repaint();
+            }
+        });
+        timer.start();
+    }
+
+    public void paint(Graphics g) {
+        super.paint(g);
+        Graphics2D g2 = (Graphics2D) g;
+        g2.setColor(Color.BLACK);
+        g2.setStroke(new BasicStroke(5));
+        g2.drawOval(0 + x, 137, 100, 100); 
+        g2.drawLine(49 + x, 237, 49 + x, 339); 
+        g2.drawLine(49 + x, 339, 7 + x, 400); 
+        g2.drawLine(49 + x, 339, 95 + x, 400);
+        g2.drawLine(49 + x, 266, -2 + x, 298); 
+        g2.drawLine(49 + x, 266, 100 + x, 298);
+        g2.setColor(Color.RED);
+        g2.setStroke(new BasicStroke(3));
+        g2.drawArc(29 + x, 205, 40, 20, 0, -180); 
+        g2.setColor(Color.BLACK);
+        g2.drawArc(35 + x, 183, 20, 20, 0, -90); 
+        g2.drawOval(20 + x, 160, 25, 25); 
+        g2.drawOval(59 + x, 160, 25, 25);
+        g2.drawOval(28 + x, 170, 10, 10);
+        g2.drawOval(67 + x, 170, 10, 10);
+        g2.setColor(Color.BLUE);
+        g2.fillOval(28 + x, 170, 10, 10);
+        g2.fillOval(67 + x, 170, 10, 10);
+        g2.setColor(Color.BLACK);
+        g2.drawRect(-12 + x, 174, 10, 20); 
+        g2.drawRect(100 + x, 174, 10, 20);
+        for (int i = 0; i < 25; i++) { 
+            g2.setColor(Color.BLACK);
+            int m = (int) ((8 + x) + Math.random() * 20);
+            int n = (int) (185 + Math.random() * 20);
+            g2.fillOval(m, n, 4, 4);
+            g2.setColor(Color.BLACK);
+            g2.setStroke(new BasicStroke(1));
+            g2.drawOval(m, n, 5, 5);
+        }
+        for (int i = 0; i < 25; i++) {
+            g2.setColor(Color.BLACK);
+            int m = (int) Math.ceil((65 + x) + Math.random() * 20);
+            int n = (int) Math.ceil(185 + Math.random() * 20);
+            g2.fillOval(m, n, 4, 4);
+            g2.setColor(Color.BLACK);
+            g2.setStroke(new BasicStroke(1));
+            g2.drawOval(m, n, 5, 5);
+        }
+    }
+}
